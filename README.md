@@ -23,7 +23,7 @@ mvn clean package
 # List all
 mvn -q exec:java -Dexec.mainClass="com.example.app.App" -Dexec.args="list"
 
-# Add (date or 'null')
+# Add 
 mvn -q exec:java -Dexec.mainClass="com.example.app.App" -Dexec.args='add Alice Wong alice.wong@example.com 2023-09-03'
 
 # Update email
