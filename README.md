@@ -1,22 +1,36 @@
 # Database Interaction with PostgreSQL and Application Programming
 
-## Prereqs
-- Java 17+
-- PostgreSQL 17+ (local)
-- Maven 3.9+
+## Prerequisites
+- Java 17+, Maven 3.9+
+- PostgreSQL (local)
 
-## Setup
-1. Create DB and load schema:
-   - In pgAdmin run `db/schema.sql` in database `school` **or**
-   - `psql -h localhost -U postgres -d school -f db/schema.sql`
-2. Set env vars:
-   - Windows Git Bash:
-     ```bash
-     export DB_URL="jdbc:postgresql://localhost:5432/school"
-     export DB_USER="postgres"
-     export DB_PASSWORD="<your-password>"
-     ```
-3. Run:
-   ```bash
-   mvn clean package
-   mvn exec:java -Dexec.mainClass="com.example.app.App"
+## Database Setup
+Create database `school` and run the schema:
+- Using pgAdmin: open `db/schema.sql` on `school` DB and execute.
+- Or with psql:
+  psql -h localhost -U postgres -c "CREATE DATABASE school;"
+  psql -h localhost -U postgres -d school -f db/schema.sql
+
+## Run the App
+Set environment variables (Git Bash):
+export DB_URL="jdbc:postgresql://localhost:5432/school"
+export DB_USER="postgres"
+export DB_PASSWORD="<your-password>"
+
+Build and run:
+mvn clean package
+
+# List all
+mvn -q exec:java -Dexec.mainClass="com.example.app.App" -Dexec.args="list"
+
+# Add (date or 'null')
+mvn -q exec:java -Dexec.mainClass="com.example.app.App" -Dexec.args='add Alice Wong alice.wong@example.com 2023-09-03'
+
+# Update email
+mvn -q exec:java -Dexec.mainClass="com.example.app.App" -Dexec.args='update 10 alice.wong+updated@example.com'
+
+# Delete
+mvn -q exec:java -Dexec.mainClass="com.example.app.App" -Dexec.args='delete 10'
+
+## Video
+
