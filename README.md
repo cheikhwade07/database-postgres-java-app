@@ -27,10 +27,10 @@ mvn -q exec:java -Dexec.mainClass="com.example.app.App" -Dexec.args="list"
 mvn -q exec:java -Dexec.mainClass="com.example.app.App" -Dexec.args='add Alice Wong alice.wong@example.com 2023-09-03'
 
 # Update email
-mvn -q exec:java -Dexec.mainClass="com.example.app.App" -Dexec.args='update 10 alice.wong+updated@example.com'
+mvn -q exec:java -Dexec.mainClass="com.example.app.App" -Dexec.args='update <Enter StudentID of student you want to updat> alice.wong+updated@example.com'
 
 # Delete
-mvn -q exec:java -Dexec.mainClass="com.example.app.App" -Dexec.args='delete 10'
+mvn -q exec:java -Dexec.mainClass="com.example.app.App" -Dexec.args='delete <Enter StudentID of student you want to updat>'
 
 ## Video
 
